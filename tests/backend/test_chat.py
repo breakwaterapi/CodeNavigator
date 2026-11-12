@@ -1,7 +1,8 @@
 from types import SimpleNamespace
 
+import httpx
 from fastapi.testclient import TestClient
-from mistralai import SDKError
+from mistralai.client.errors import SDKError
 
 import backend.chat as chat_backend
 from backend.app import create_app
@@ -32,7 +33,10 @@ def test_chat_returns_503_for_provider_auth_failure(monkeypatch) -> None:
         return StubChatbot(
             SDKError(
                 message="API error occurred",
-                status_code=401,
+                raw_response=httpx.Response(
+                    401,
+                    request=httpx.Request("POST", "https://api.mistral.ai/v1/chat/completions"),
+                ),
                 body='{"detail":"Unauthorized"}',
             )
         )

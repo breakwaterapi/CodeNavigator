@@ -3,7 +3,7 @@ import re
 import time
 import logging
 from typing import Optional
-from mistralai import Mistral
+from mistralai.client import Mistral
 from src.embedding.chunker import Chunk
 from src.generation.prompts import (
     SYSTEM_PROMPT,

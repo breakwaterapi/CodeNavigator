@@ -1,6 +1,6 @@
 # backend/chat.py
 from fastapi import APIRouter, HTTPException, status
-from mistralai import SDKError
+from mistralai.client.errors import SDKError
 from pydantic import BaseModel
 from src.rag.chatbot import CodeNavigatorChatbot
 import os
