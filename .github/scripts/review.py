@@ -21,12 +21,7 @@ import sys
 
 import requests
 
-try:
-    # mistralai>=2 exposes Mistral under mistralai.client
-    from mistralai.client import Mistral
-except ImportError:
-    # Backward compatibility for older SDK versions
-    from mistralai import Mistral
+from mistralai.client import Mistral
 
 # ---------------------------------------------------------------------------
 # Config

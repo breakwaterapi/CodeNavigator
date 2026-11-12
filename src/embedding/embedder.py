@@ -1,7 +1,7 @@
 # embedding/embedder.py
 import os
 import time
-from mistralai import Mistral
+from mistralai.client import Mistral
 from src.embedding.chunker import Chunk
 import dotenv
 
